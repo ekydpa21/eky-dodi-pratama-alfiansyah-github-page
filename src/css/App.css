@@ -36,4 +36,12 @@
   width: -moz-max-content !important;
   width: max-content !important;
 }
+
+.Repositories {
+  padding: 25px 50px;
+}
+
+.link {
+  text-decoration: none;
+}
 /*# sourceMappingURL=App.css.map */

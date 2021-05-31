@@ -1,11 +1,16 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 export default function RepoCard({ repo }) {
+  const { name, html_url } = repo
+
   return (
-    <div>
-      <div className="card">
-        <div className="card-body">This is some text within a card body.</div>
+    <Link className="link" to={{ pathname: html_url }} target="_blank">
+      <div className="card mb-2">
+        <div className="card-body">
+          <h5 className="mb-0">{name}</h5>
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }

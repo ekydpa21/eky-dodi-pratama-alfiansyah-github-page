@@ -15,12 +15,10 @@ export default function Repositories() {
 
   return (
     <div className="Repositories">
-      <h1>
-        {fetchedRepos &&
-          fetchedRepos.map((repo, idx) => {
-            return <RepoCard key={idx} repo={repo} />
-          })}
-      </h1>
+      {fetchedRepos &&
+        fetchedRepos.map((repo, idx) => {
+          return <RepoCard key={idx} repo={repo} />
+        })}
     </div>
   )
 }
