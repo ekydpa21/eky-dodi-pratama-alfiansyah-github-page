@@ -38,10 +38,64 @@
 }
 
 .Repositories {
-  padding: 25px 50px;
+  padding: 30px 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #0d1117;
+}
+
+.Repositories .user-info {
+  width: 30%;
+  margin-right: 25px;
+  padding: 20px 0;
+}
+
+.Repositories .user-info img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.Repositories .user-info h3 {
+  color: #c9d1d9;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.Repositories .user-info h5 {
+  color: #8b949e;
+}
+
+.Repositories .repo-list {
+  width: 100%;
 }
 
 .link {
   text-decoration: none;
+  cursor: default;
+}
+
+.link .repo-info {
+  padding: 20px 0;
+  height: 100px;
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
+}
+
+.link .repo-info h4 {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: #58a6ff;
+}
+
+.link .repo-info h4:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link .repo-info p {
+  margin-top: -5px;
+  color: #7b8f9e;
 }
 /*# sourceMappingURL=App.css.map */

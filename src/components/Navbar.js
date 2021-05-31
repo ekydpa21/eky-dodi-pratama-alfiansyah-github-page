@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="navbar navbar-light bg-light">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-text-top" />
+          <img src={Logo} alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
           Github
         </Link>
       </div>

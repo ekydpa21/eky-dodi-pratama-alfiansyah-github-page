@@ -18,6 +18,7 @@ export default function Home() {
       })
     } else {
       history.push(`/repositories/${username}`)
+      setUsername("")
     }
   }
 
