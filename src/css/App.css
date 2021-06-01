@@ -73,14 +73,11 @@
   display: -ms-flexbox;
   display: flex;
   background-color: #0d1117;
-  position: absolute;
-  top: 0;
-  bottom: 0;
 }
 
 .Repositories .user-info {
   width: 30%;
-  margin-right: 25px;
+  margin-right: 30px;
   padding: 20px 0;
 }
 
@@ -99,6 +96,11 @@
   color: #8b949e;
 }
 
+.Repositories .user-info p {
+  margin-top: 30px;
+  color: #8b949e;
+}
+
 .Repositories .repo-list {
   width: 100%;
 }
@@ -110,9 +112,8 @@
 
 .link .repo-info {
   padding: 20px 0;
-  height: 100px;
+  height: 120px;
   border-bottom: 1px solid white;
-  margin-bottom: 5px;
 }
 
 .link .repo-info h4 {
@@ -127,8 +128,15 @@
   cursor: pointer;
 }
 
-.link .repo-info p {
-  margin-top: -5px;
+.link .repo-info .project-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.link .repo-info .project-info p {
+  margin-top: 5px;
   color: #7b8f9e;
+  font-size: 0.9em;
 }
 /*# sourceMappingURL=App.css.map */
