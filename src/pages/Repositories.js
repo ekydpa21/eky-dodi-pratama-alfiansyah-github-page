@@ -1,26 +1,44 @@
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useParams } from "react-router"
-import RepoCard from "../components/RepoCard"
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
+import Swal from "sweetalert2";
+import LoadingScreen from "../components/LoadingScreen";
+import RepoCard from "../components/RepoCard";
 
 export default function Repositories() {
-  const { username } = useParams()
-  const [fetchedUser, setFetchedUser] = useState()
-  const [fetchedRepos, setFetchedRepos] = useState()
+  const history = useHistory();
+  const { username } = useParams();
+  const [fetchedUser, setFetchedUser] = useState();
+  const [fetchedRepos, setFetchedRepos] = useState();
 
   useEffect(() => {
-    axios.get(`https://api.github.com/users/${username}`).then(({ data }) => {
-      setFetchedUser(data)
-    })
-  }, [username])
+    axios
+      .get(`https://api.github.com/users/${username}`)
+      .then(({ data }) => {
+        console.log(data);
+        setFetchedUser(data);
+      })
+      .catch(({ response }) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `User ${response.data.message}`,
+        });
+        history.push("/");
+      });
+  }, [username, history]);
 
   useEffect(() => {
-    axios.get(`https://api.github.com/users/${username}/repos`).then(({ data }) => {
-      setFetchedRepos(data)
-    })
-  }, [username])
+    axios
+      .get(`https://api.github.com/users/${username}/repos`)
+      .then(({ data }) => {
+        setFetchedRepos(data);
+      })
+      .catch(({ response }) => console.log(response.data.message));
+  }, [username]);
 
-  // const { avatar_url, name, login } = fetchedUser
+  if (!fetchedUser || !fetchedRepos) return <LoadingScreen />;
+
   return (
     <div className="Repositories">
       <div className="user-info">
@@ -35,9 +53,9 @@ export default function Repositories() {
       <div className="repo-list">
         {fetchedRepos &&
           fetchedRepos.map((repo, idx) => {
-            return <RepoCard key={idx} repo={repo} />
+            return <RepoCard key={idx} repo={repo} />;
           })}
       </div>
     </div>
-  )
+  );
 }
