@@ -37,28 +37,30 @@ export default function Repositories() {
       .catch(({ response }) => console.log(response.data.message))
   }, [username])
 
-  if (!fetchedUser || !fetchedRepos) return <LoadingScreen />
-
-  return (
-    <div className="Repositories">
-      <div className="user-info">
-        {fetchedUser && (
-          <>
-            <img src={fetchedUser.avatar_url} alt="user-avatar" />
-            <h3>{fetchedUser.name}</h3>
-            <h5>{fetchedUser.login}</h5>
-            <p>
-              {fetchedUser.followers} Follower . {fetchedUser.following} Following
-            </p>
-          </>
-        )}
+  if (!fetchedUser || !fetchedRepos) {
+    return <LoadingScreen />
+  } else {
+    return (
+      <div className="Repositories">
+        <div className="user-info">
+          {fetchedUser && (
+            <>
+              <img src={fetchedUser.avatar_url} alt="user-avatar" />
+              <h3>{fetchedUser.name}</h3>
+              <h5>{fetchedUser.login}</h5>
+              <p>
+                {fetchedUser.followers} Follower . {fetchedUser.following} Following
+              </p>
+            </>
+          )}
+        </div>
+        <div className="repo-list">
+          {fetchedRepos &&
+            fetchedRepos.map((repo, idx) => {
+              return <RepoCard key={idx} repo={repo} />
+            })}
+        </div>
       </div>
-      <div className="repo-list">
-        {fetchedRepos &&
-          fetchedRepos.map((repo, idx) => {
-            return <RepoCard key={idx} repo={repo} />
-          })}
-      </div>
-    </div>
-  )
+    )
+  }
 }

@@ -7,14 +7,16 @@ export default function RepoCard({ repo }) {
   const updatedTime = moment(updated_at).format("YYYYMMDD")
 
   return (
-    <Link className="link" to={{ pathname: html_url }} target="_blank">
+    <div className="project-container">
       <div className="repo-info">
-        <h4>{name}</h4>
+        <Link to={{ pathname: html_url }} target="_blank">
+          {name}
+        </Link>
         <div className="project-info">
           {language && <p className="me-4">{language}</p>}
           <p>Updated {moment(updatedTime, "YYYYMMDD").fromNow()}</p>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
